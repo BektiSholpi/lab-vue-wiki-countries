@@ -1,33 +1,37 @@
 <template>
-  <img
-    class="flag"
-    :src="`https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`"
-    alt=""
-  />
-  <h1>{{ name }}</h1>
-  <table>
-    <thead></thead>
-    <tbody>
-      <tr class="d-flex flex-column">
-        <td class="fw-bold">Capital:</td>
-        <td>{{ capital }}</td>
-      </tr>
-      <tr class="d-flex flex-column">
-        <td class="fw-bold">Area:</td>
-        <td>{{ area }} km2</td>
-      </tr>
-      <tr class="d-flex flex-column">
-        <td class="fw-bold">Borders:</td>
-        <td>
-          <ul>
-            <li v-for="(border, index) in borders" :key="index">
-              {{ border }}
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <img
+      class="flag"
+      v-bind:src="`https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`"
+      alt=""
+    />
+    <h1>{{ name }}</h1>
+    <ul class="list-group list-group-flush">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <p class="fw-bold">Capital:</p>
+        <p class="me-5">{{ capital[0] }}</p>
+      </li>
+
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <p class="fw-bold">Area</p>
+        <p class="me-5">{{ area }} km2</p>
+      </li>
+
+      <li class="list-group-item">
+        <p class="fw-bold">Borders:</p>
+
+        <p v-if="borders.length === 0">This country has no borders</p>
+
+        <p v-else v-for="(border, index) in borders" :key="index">
+          <router-link :to="`/list/${border}`">{{ border }}</router-link>
+        </p>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
