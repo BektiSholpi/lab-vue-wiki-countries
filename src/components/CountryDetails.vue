@@ -11,7 +11,7 @@
         class="list-group-item d-flex justify-content-between align-items-center"
       >
         <p class="fw-bold">Capital:</p>
-        <p class="me-5">{{ capital[0] }}</p>
+        <p class="me-5">{{ capital }}</p>
       </li>
 
       <li
