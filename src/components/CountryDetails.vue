@@ -14,7 +14,7 @@
       </tr>
       <tr class="d-flex flex-column">
         <td class="fw-bold">Area:</td>
-        <td>{{ area }}</td>
+        <td>{{ area }} km2</td>
       </tr>
       <tr class="d-flex flex-column">
         <td class="fw-bold">Borders:</td>
